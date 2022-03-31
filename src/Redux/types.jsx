@@ -1,0 +1,3 @@
+export const SVG_HANDLER = 'SVG_HANDLER';
+export const URL_HANDLER = 'URL_HANDLER';
+export const CURRENT_TYPE_HANDLER = 'CURRENT_TYPE_HANDLER';

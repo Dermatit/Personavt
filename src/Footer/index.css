@@ -1,0 +1,20 @@
+section {
+    display: flex;
+}
+.SexSelector {
+    font-size: 30px;
+}
+.male {
+    color: rgb(0, 238, 255);
+}
+.female {
+    color: pink;
+}
+.typeElement {
+    color: white;
+}
+.male, .female, .calm, .angry, .typeElement, .styleElement {
+    padding: 40px;
+    margin: 5px;
+    background: rgb(94, 109, 247);
+}
