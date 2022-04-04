@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { HexColorPicker } from "react-colorful";
 import { useDispatch, useSelector } from 'react-redux';
 import getSVGColors from 'get-svg-colors-browser';
@@ -7,7 +7,7 @@ import { urlHandlerAction } from '../Redux/actions.jsx';
 
 export const ColorPiker = () => {
     const dispatch = useDispatch();
-    const SVG = useSelector(state => state.svgHandler);
+
     const url = useSelector(state => state.urlHandler);
 
     const [displayColorPicker, setDisplayColorPicker] = useState(false);
@@ -18,23 +18,20 @@ export const ColorPiker = () => {
         setColorPickerSelectedColor(oldColor);
     };
 
-    const [сolors, setСolors] = useState([]);
+    const [colors, setСolors] = useState([]);
 
     useEffect(() => {
-        getSVGColors(SVG, { flat: true }).then((value) => {
-            setСolors(Array.from(new Set(value)));
-        });
+        getSVGColors(url, { flat: true }).then((value) => setСolors(Array.from(new Set(value))));
     }, [url]);
 
     const setNewColor = (oldColor, newColor) => {
-        const newSvgCode = url.replaceAll(oldColor, newColor);
         setColorPickerSelectedColor(newColor);
-        dispatch(urlHandlerAction(newSvgCode));
+        url.indexOf(newColor) == -1 && dispatch(urlHandlerAction(url.replaceAll(oldColor, newColor)));
     };
 
     return (
         <>
-            {сolors.map(color => 
+            {colors.map(color => 
                 <div 
                     style={{content: "", width: "30px", height: "30px", backgroundColor: color, display: "inline-block", marginRight: "10px",}} 
                     onClick={() => showColorPicker(!displayColorPicker, color)}

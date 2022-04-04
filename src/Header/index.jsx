@@ -5,8 +5,10 @@ export default function Header() {
     return (
         <header>
             <Logo/>
-            <Question/>
-            <Download/>
+            <div className='middle'>
+                <Question/>
+                <Download/>
+            </div>
             <Message/>
         </header>
     );
