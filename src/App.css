@@ -2,3 +2,27 @@
     display: flex;
     justify-content: space-between;
 }
+.info {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 800px;
+    padding-bottom: 20px;
+}
+.infoTriImage {
+    display: flex;
+}
+.infoTriImage img {
+    width: 240px;
+    margin: 20px;
+}
+.infoTriImage img:first-child {
+    margin-left: 0px;
+}
+.wide-image {
+    width: 800px;
+    height: 200px;
+    margin: 20px 0px;
+}

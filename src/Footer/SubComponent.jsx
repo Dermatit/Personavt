@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { svgHandlerAction, currentTypeHandlerAction, allClearAction } from '../Redux/actions.jsx';
+import { svgHandlerAction, currentTypeHandlerAction, allClearAction, urlHandlerAction } from '../Redux/actions.jsx';
 import { TypeData } from './data.js';
 
 const parse = require('html-react-parser');
@@ -44,7 +44,7 @@ export function Type() {
                     }
                     {currentType == 'pose' && 
                         TypeData.filter(elem => sexCheck == elem.sex).map(elem => 
-                            <div className='styleElement' onClick={()=>{dispatch(svgHandlerAction(...elem.pose));setPoseCheck(...elem.poseCheck);setTextBlur('white')}} >
+                            <div className='styleElement' onClick={()=>{dispatch(urlHandlerAction(...elem.pose));setPoseCheck(...elem.poseCheck);setTextBlur('white')}} >
                                 <div 
                                     className='styleSVG' 
                                     style={{width: '50px'}} 
@@ -56,7 +56,7 @@ export function Type() {
                     }
                     {currentType !== 'pose' && currentType !== 'sex' &&
                         TypeData.filter(elem => sexCheck == elem.sex && poseCheck == elem.poseCheck).map(elem => elem[currentType].map(elem =>
-                            <div className='styleElement' onClick={()=>dispatch(svgHandlerAction(elem))} >
+                            <div className='styleElement' onClick={()=>dispatch(urlHandlerAction(elem))} >
                                 <div 
                                     className='styleSVG' 
                                     style={{width: '50px'}} 
@@ -73,8 +73,8 @@ export function Type() {
 
             <div className='type'>
                 {Object.keys({...TypeData.find(elem => elem)}).filter(elem => elem !== 'poseCheck').map((elem, i) => 
-                i === 0 ? <div className='typeElement' onClick={()=>{dispatch(currentTypeHandlerAction(elem));setTypeRender(true); setStyleDisplay()}}>{elem}</div> :
-                i === 1 ? <div className='typeElement' style={{color : poseBlur}} onClick={()=>{dispatch(currentTypeHandlerAction(elem));setTypeRender(true); setStyleDisplay()}}>{elem}</div> :
+                i === 0 ? <div className='typeElement' onClick={()=>{dispatch(currentTypeHandlerAction(elem));setTypeRender(true); setStyleDisplay()}} key={elem}>{elem}</div> :
+                i === 1 ? <div className='typeElement' style={{color : poseBlur}} onClick={()=>{dispatch(currentTypeHandlerAction(elem));setTypeRender(true); setStyleDisplay()}} key={elem}>{elem}</div> :
                 <div className='typeElement' style={{color : textBlur}} onClick={()=>{dispatch(currentTypeHandlerAction(elem));setTypeRender(true); setStyleDisplay()}} key={elem}>{elem}</div>)}
             </div>
 

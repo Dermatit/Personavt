@@ -3,8 +3,9 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import { useSelector, useDispatch } from 'react-redux';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { svgHandlerAction, urlHandlerAction } from './Redux/actions';
+import { Info } from './Info/Info';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -13,13 +14,20 @@ export default function App() {
   useMemo(() => {
     dispatch(svgHandlerAction('none'))
     dispatch(urlHandlerAction(''))
-  }, [clearKey])
+  }, [clearKey]);
+
+  const [infoRender, setInfoRender] = useState(false);
+
+  const showInfo = b => setInfoRender(b)
+
+  const [dowloadUrl, setDownloadUrl] = useState();
+
+  const setDownloadUrlHandler = u => setDownloadUrl(u)
   
   return (
     <div className='app'>
-      <Header/>
-      <Main key={clearKey}/>
-      <Footer/>
+      <Header showInfo={showInfo} infoRender={infoRender} dowloadUrl={dowloadUrl}/>
+      {infoRender ? <Info/> : <><Main key={clearKey} setDownloadUrlHandler={setDownloadUrlHandler}/><Footer/></>}
     </div>
   );
 }
