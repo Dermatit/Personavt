@@ -1,11 +1,4 @@
-import { SVG_HANDLER, URL_HANDLER, CURRENT_TYPE_HANDLER, ALL_CLEAR } from "./types.jsx";
-
-export const svgHandlerAction = (SVG) => {
-    return {
-        type: SVG_HANDLER,
-        payload: SVG
-    }
-}
+import { URL_HANDLER, CURRENT_TYPE_HANDLER, ALL_CLEAR } from "./types.jsx";
 
 export const allClearAction = (key) => {
     return {

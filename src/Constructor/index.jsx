@@ -1,10 +1,8 @@
 import { ColorPiker } from './ColorPicker';
 import { KonvaComponent } from './KonvaComponent';
-//эТИ ГОВНАРИ РЕРЕНДЕРЯТСЯ ПРОСТО ВСЕГДА
-import { useState } from 'react';
 
-export default function Main({setDownloadUrlHandler}) {
-    const [imageContainer] = useState([]);
+export default function Constructor({setDownloadUrlHandler}) {
+    const imageContainer = [];
 
     return (
         <main>
