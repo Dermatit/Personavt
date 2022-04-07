@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { URL_HANDLER, CURRENT_TYPE_HANDLER, ALL_CLEAR } from "./types.jsx";
+import { URL_HANDLER, CURRENT_TYPE_HANDLER, ALL_CLEAR, DOWNLOAD_REF } from "./types.jsx";
 
 const initialState = {
     default: ''
@@ -24,4 +24,11 @@ export const currentTypeHandler = (state = initialState.default, action) => {
     }
 }
 
-export const rootReducer = combineReducers({ urlHandler, currentTypeHandler, allClearHandler });
+export const dowloadRefHandler = (state = initialState.default, action) => {
+    switch (action.type) {
+        case DOWNLOAD_REF: return action.payload;
+        default: return state;
+    }
+}
+
+export const rootReducer = combineReducers({ urlHandler, currentTypeHandler, allClearHandler, dowloadRefHandler});

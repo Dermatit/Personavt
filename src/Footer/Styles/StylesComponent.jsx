@@ -14,7 +14,7 @@ export const Styles = ({setBlur}) => {
     const poseStyleProp = (poseCheck, pose) => {
         setPoseCheck(poseCheck);
         dispatch(urlHandlerAction(pose));
-        setBlur.otherTypes();
+        setBlur.otherTypes('white');
     }
 
     const genderStyleProp = (sex) => {
@@ -22,15 +22,15 @@ export const Styles = ({setBlur}) => {
         setPoseCheck();
         setBlur.poseType();
         setBlur.newClearKey();
+        setBlur.otherTypes('#1c5ebd')
+        dispatch(urlHandlerAction(''));
     }
-
-    const otherStylesProp = (url) => dispatch(urlHandlerAction(url))
 
     return (
         <div className='style'>
             {currentType == 'sex' && <GenderStyle genderStyleProp={genderStyleProp}/>}
             {currentType == 'pose' && <PoseStyle sexCheck={sexCheck} poseStyleProp={poseStyleProp}/>}
-            {currentType !== 'pose' && currentType !== 'sex' && <OtherStyles sexCheck={sexCheck} poseCheck={poseCheck} otherStylesProp={otherStylesProp}/>}
+            {currentType !== 'pose' && currentType !== 'sex' && <OtherStyles sexCheck={sexCheck} poseCheck={poseCheck}/>}
         </div> 
     )
 }

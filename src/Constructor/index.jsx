@@ -1,14 +1,13 @@
-import { ColorPiker } from './ColorPicker';
-import { KonvaComponent } from './KonvaComponent';
+import { ColorPiker } from './ColorPicker/ColorPicker';
+import { ImagesComponent } from './Stage/ImagesComponent';
 
-export default function Constructor({setDownloadUrlHandler}) {
+export default function Constructor() {
     const imageContainer = [];
-
     return (
         <main>
             <div className='main'>
                 <ColorPiker/>
-                <KonvaComponent imageContainer={imageContainer} setDownloadUrlHandler={setDownloadUrlHandler}/>
+                <ImagesComponent imageContainer={imageContainer}/>
             </div>
         </main>
     );

@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { currentTypeHandlerAction, allClearAction, urlHandlerAction } from '../Redux/actions.jsx';
+import { currentTypeHandlerAction, allClearAction } from '../Redux/actions.jsx';
 import { Styles } from './Styles/StylesComponent.jsx';
 import { Types } from './Types/TypesComponent.jsx';
 import './index.css'
@@ -23,13 +23,8 @@ export default function Footer() {
     const setBlur = {
         newClearKey : () => dispatch(allClearAction(Math.random())),
         poseType : () => setPoseTypeBlur('white'),
-        otherTypes : () => setOtherTypesBlur('white')
+        otherTypes : (color) => setOtherTypesBlur(color)
     }
-
-    useMemo(() => {
-        setOtherTypesBlur('#1c5ebd');
-        dispatch(urlHandlerAction(''));
-    }, [clearKey]);
 
     return (
         <footer>
