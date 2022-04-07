@@ -9,12 +9,15 @@ export const Styles = ({setBlur}) => {
     const currentType = useSelector(state => state.currentTypeHandler);
 
     const [poseCheck, setPoseCheck] = useState();
+    const [prevPoseCheck, setPrevPoseCheck] = useState();
+
     const [sexCheck, setSexCheck] = useState();
 
     const poseStyleProp = (poseCheck, pose) => {
+        prevPoseCheck !== poseCheck && setBlur.newClearKey() && setPrevPoseCheck(poseCheck);
+        setBlur.otherTypes('white');
         setPoseCheck(poseCheck);
         dispatch(urlHandlerAction(pose));
-        setBlur.otherTypes('white');
     }
 
     const genderStyleProp = (sex) => {
@@ -22,7 +25,7 @@ export const Styles = ({setBlur}) => {
         setPoseCheck();
         setBlur.poseType();
         setBlur.newClearKey();
-        setBlur.otherTypes('#1c5ebd')
+        setBlur.otherTypes('#1c5ebd');
         dispatch(urlHandlerAction(''));
     }
 
