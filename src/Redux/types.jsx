@@ -1,4 +1,2 @@
-export const URL_HANDLER = 'URL_HANDLER';
-export const CURRENT_TYPE_HANDLER = 'CURRENT_TYPE_HANDLER';
-export const ALL_CLEAR = 'ALL_CLEAR';
-export const DOWNLOAD_REF = 'DOWNLOAD_REF';
+export const IMAGE_INFO = 'IMAGE_INFO';
+export const DOWNLOAD_STAGE = 'DOWNLOAD_STAGE'

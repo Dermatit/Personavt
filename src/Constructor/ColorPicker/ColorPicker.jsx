@@ -3,20 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { HexColorPicker } from "react-colorful";
 import getSVGColors from 'get-svg-colors-browser';
 import { ColorPickerButton } from './ColorPickerButton.jsx';
-import { urlHandlerAction } from '../../Redux/actions.jsx';
+import { imageInfoAction } from '../../Redux/actions.jsx';
 import './index.css';
 
 export const ColorPiker = () => {
     const dispatch = useDispatch();
 
-    const url = useSelector(state => state.urlHandler);
+    const getState = state => state.constructorReducer.currentUrl;
+    const url = useSelector(getState);
+
     const [colors, setСolors] = useState([]);
 
     const [displayColorPicker, setDisplayColorPicker] = useState(false);
     const [colorPickerSelectedColor, setColorPickerSelectedColor] = useState("#ffffff");
     
     const showColorPicker = (oldColor) => {
-        setDisplayColorPicker(!displayColorPicker);
+        setDisplayColorPicker(prevState => !prevState);
         setColorPickerSelectedColor(oldColor);
     };
 
@@ -25,12 +27,14 @@ export const ColorPiker = () => {
     const setNewColor = (oldColor, newColor) => {
         const newUrl = url.replaceAll(oldColor, newColor);
         setColorPickerSelectedColor(newColor);
-        url.indexOf(newColor) == -1 && dispatch(urlHandlerAction(newUrl));
+        url.indexOf(newColor) == -1 && dispatch(imageInfoAction(newUrl));
     };
 
     return (
         <>
+        <div className='colors'>
             {colors.map(color => <ColorPickerButton color={color} showColorPicker={showColorPicker}/>)}
+        </div>
             {displayColorPicker && <HexColorPicker color={colorPickerSelectedColor} onChange={(e)=>setNewColor(colorPickerSelectedColor, e)}/>}
         </>
     );

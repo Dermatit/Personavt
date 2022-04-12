@@ -2,7 +2,6 @@ import { ReactComponent as LogoIcon } from '../Assets/Logo.svg';
 import { ReactComponent as QuestionIcon } from '../Assets/Question.svg';
 import { ReactComponent as DownloadIcon } from '../Assets/Download.svg';
 import { ReactComponent as MessageIcon } from '../Assets/Message.svg';
-
 import { useSelector } from 'react-redux';
 
 export function Logo() {
@@ -15,16 +14,17 @@ export function Logo() {
     )
 }
 
-export function Question({showInfo, infoRender}) {
+export function Question({toggleInfoRender}) {
     return (
-        <div className='question' onClick={()=> showInfo(!infoRender)}>
+        <div className='question' onClick={toggleInfoRender}>
             <QuestionIcon/>
         </div>
     )
 }
 
 export function Download() {
-    const stageRef = useSelector(state => state.dowloadRefHandler);
+    const getStateDownloadStage = state => state.triviaReducer.downloadStage;
+    const downloadStage = useSelector(getStateDownloadStage);
 
     const download = (source) => {
         const el = document.createElement("a");
@@ -35,7 +35,7 @@ export function Download() {
         el.remove();
     }
     return (
-        <div className='download' onClick={()=> download(stageRef.current.toDataURL())}>
+        <div className='download' onClick={()=>download(downloadStage.current.toDataURL())}>
             <DownloadIcon/>
         </div>
     )

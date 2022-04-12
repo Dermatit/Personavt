@@ -8,22 +8,6 @@ footer, header {
 body {
     background: #bbd5fa;
 }
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.main {
-    display: flex;
-    justify-content: center;
-    background: white;
-    width: 70vw;
-    height: 91vh;
-}
-/* .main div:last-child {
-    display: flex;
-    justify-content: center;
-} */
 header {
     display: flex;
     flex-direction: column;
@@ -72,9 +56,6 @@ header {
 .style {
     transition: 1s;
 }
-/* .react-colorful__saturation {
-    display: none;
-} */
 .slider-picker {
     width: 1000px;
 }

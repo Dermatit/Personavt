@@ -1,34 +1,28 @@
-import { combineReducers } from 'redux';
-import { URL_HANDLER, CURRENT_TYPE_HANDLER, ALL_CLEAR, DOWNLOAD_REF } from "./types.jsx";
+import { combineReducers } from "redux";
+import { IMAGE_INFO, DOWNLOAD_STAGE } from "./types.jsx";
 
 const initialState = {
-    default: ''
+    currentType : '',
+    currentUrl : '',
 }
 
-export const allClearHandler = (state = initialState.default, action) => {
+const constructorReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ALL_CLEAR: return action.payload;
-        default: return state;
-    }
-}
-export const urlHandler = (state = initialState.default, action) => {
-    switch (action.type) {
-        case URL_HANDLER: return action.payload;
-        default: return state;
-    }
-}
-export const currentTypeHandler = (state = initialState.default, action) => {
-    switch (action.type) {
-        case CURRENT_TYPE_HANDLER: return action.payload;
+        case IMAGE_INFO : return {
+            currentType : action.currentType,
+            currentUrl : action.currentUrl
+        };
         default: return state;
     }
 }
 
-export const dowloadRefHandler = (state = initialState.default, action) => {
+const triviaReducer = (state = '', action) => {
     switch (action.type) {
-        case DOWNLOAD_REF: return action.payload;
+        case DOWNLOAD_STAGE : return {
+            downloadStage : action.downloadStage
+        };
         default: return state;
     }
 }
 
-export const rootReducer = combineReducers({ urlHandler, currentTypeHandler, allClearHandler, dowloadRefHandler});
+export const rootReducer = combineReducers({triviaReducer, constructorReducer});

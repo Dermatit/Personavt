@@ -1,39 +1,44 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { urlHandlerAction } from '../../Redux/actions.jsx';
+import { imageInfoAction } from '../../Redux/actions.jsx';
 import { GenderStyle, PoseStyle, OtherStyles } from './StyleElements.jsx';
 
-export const Styles = ({setBlur}) => {
+export const Styles = ({setBlur, localCurrentType, rerender}) => {
     const dispatch = useDispatch();
 
-    const currentType = useSelector(state => state.currentTypeHandler);
-
     const [poseCheck, setPoseCheck] = useState();
-    const [prevPoseCheck, setPrevPoseCheck] = useState();
 
     const [sexCheck, setSexCheck] = useState();
 
-    const poseStyleProp = (poseCheck, pose) => {
-        prevPoseCheck !== poseCheck && setBlur.newClearKey() && setPrevPoseCheck(poseCheck);
-        setBlur.otherTypes('white');
-        setPoseCheck(poseCheck);
-        dispatch(urlHandlerAction(pose));
+    const poseStyleProp = (pose) => {
+        return () => {
+            poseCheck !== pose && rerender();
+            setPoseCheck(pose);
+            setBlur.otherTypes('white');
+            dispatch(imageInfoAction(pose, localCurrentType));
+        }
     }
 
     const genderStyleProp = (sex) => {
-        setSexCheck(sex);
-        setPoseCheck();
-        setBlur.poseType();
-        setBlur.newClearKey();
-        setBlur.otherTypes('#1c5ebd');
-        dispatch(urlHandlerAction(''));
+        return () => {
+            rerender();
+            setPoseCheck();
+            setSexCheck(sex);
+            setBlur.poseType();
+            setBlur.otherTypes('#1c5ebd');
+            dispatch(imageInfoAction('', localCurrentType));
+        }
     }
 
-    return (
-        <div className='style'>
-            {currentType == 'sex' && <GenderStyle genderStyleProp={genderStyleProp}/>}
-            {currentType == 'pose' && <PoseStyle sexCheck={sexCheck} poseStyleProp={poseStyleProp}/>}
-            {currentType !== 'pose' && currentType !== 'sex' && <OtherStyles sexCheck={sexCheck} poseCheck={poseCheck}/>}
-        </div> 
-    )
+    const otherStylesProp = (otherStyle) => {
+        return () => {
+            dispatch(imageInfoAction(otherStyle, localCurrentType));
+        }
+    }
+
+    switch(localCurrentType) {
+        case 'sex': return <GenderStyle genderStyleProp={genderStyleProp}/>;
+        case 'pose' : return <PoseStyle sexCheck={sexCheck} poseStyleProp={poseStyleProp}/>;
+        default : return <OtherStyles sexCheck={sexCheck} poseCheck={poseCheck} localCurrentType={localCurrentType} otherStylesProp={otherStylesProp}/>;
+    }
 }

@@ -1,32 +1,32 @@
 import { useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Stage, Layer } from "react-konva";
-import { urlHandlerAction, currentTypeHandlerAction, downloadRefHandlerAction } from '../../Redux/actions.jsx';
+import { imageInfoAction, downloadStageAction } from '../../Redux/actions.jsx';
 import { ImageComponent } from './ImageComponent.jsx';
 
-export const ImagesComponent = ({ imageContainer }) => {
+export const ImagesComponent = ({imageContainer}) => {
     const dispatch = useDispatch();
-    
-    const stageRef = useRef();
-    dispatch(downloadRefHandlerAction(stageRef));
+    const stage = useRef();
 
-    const currentType = useSelector(state => state.currentTypeHandler);
-    const url = useSelector(state => state.urlHandler);
+    const getStateCurrentType = state => state.constructorReducer.currentType;
+    const getStateCurrentUrl = state => state.constructorReducer.currentUrl;
+    const currentType = useSelector(getStateCurrentType);
+    const url = useSelector(getStateCurrentUrl);
 
     const suddenColor = (suddenCurrentType, url) => {
-        dispatch(currentTypeHandlerAction(suddenCurrentType));
-        dispatch(urlHandlerAction(url));
+        dispatch(imageInfoAction(url, suddenCurrentType));
     }
 
     useMemo(() => {
-        const repeatedElementIndex = imageContainer.indexOf(imageContainer.find(elem => Object.keys(elem) == currentType));
-        const repeatedElementCheck = imageContainer.some(elem => Object.keys(elem) == currentType);
-        const imageToContainer = {[currentType] : <ImageComponent suddenColor={suddenColor} currentType={currentType} url={url}/>};
-        repeatedElementCheck ? imageContainer[repeatedElementIndex] = imageToContainer : imageContainer.push(imageToContainer);
+        dispatch(downloadStageAction(stage));
+        const currentImageIndex = imageContainer.indexOf(imageContainer.find(elem => Object.keys(elem) == currentType));
+        const imageRepeatCheck = imageContainer.some(elem => Object.keys(elem) == currentType);
+        const imageToRender = {[currentType] : <ImageComponent key={url} suddenColor={suddenColor} currentType={currentType} url={url}/>};
+        imageRepeatCheck ? imageContainer[currentImageIndex] = imageToRender : imageContainer.push(imageToRender);
     }, [url])
 
     return (
-        <Stage ref={stageRef} width={500} height={500}>
+        <Stage ref={stage} width={250} height={500}>
             <Layer>
                 {imageContainer.map(elem => Object.values(elem))}
             </Layer>

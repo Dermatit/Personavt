@@ -1,0 +1,93 @@
+main {
+    background: #bbd5fa;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 50px;
+
+    .main > div:last-child {
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .main {
+        display: flex;
+        background: white;
+        height: 100%;
+
+        .colors {
+            display: flex;
+            flex-direction: column;
+
+            .color-picker-button {
+                display: initial;
+                height: 100%;
+            }
+        }
+        .react-colorful {
+            margin: 20px;
+            margin-left: 50px;
+            position: absolute;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .app {
+        flex-direction: column;
+        height: 100vh;
+        header {
+            flex-direction: row;
+            justify-content: center;
+            height: auto;
+
+            .middle {
+                display: flex;
+            }
+            .question, .message, .logo, .download {
+                width: 50px;
+                margin: 15px 15px;
+            }
+        }
+        main {
+            padding: 0px;
+            height: 100%;
+            .main {
+                height: 100%;
+                .react-colorful {
+                    height: 10%;
+                    width: 100%;
+                    margin: 0;
+                    .react-colorful__saturation, .react-colorful__last-control {
+                        border-bottom: 0px;
+                        border-radius: 0;
+                    }
+                }
+            }
+        }
+        footer {
+            height: auto;
+
+            section {
+                flex-direction: column;
+                align-items: flex-start;
+                overflow: hidden;
+                .style, .type {
+                    display: flex;
+                    position: relative;
+                    .typeElement, .styleElement {
+                        margin: 10px;
+                        width: 60px;
+                        height: 60px;
+                    }
+                    .typeElement:first-child, .styleElement:first-child {
+                        margin-left: 20px;
+                    }
+                    .typeElement:last-child, .styleElement:last-child {
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

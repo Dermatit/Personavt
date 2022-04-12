@@ -1,29 +1,19 @@
-import { URL_HANDLER, CURRENT_TYPE_HANDLER, ALL_CLEAR, DOWNLOAD_REF } from "./types.jsx";
+import { IMAGE_INFO, DOWNLOAD_STAGE } from "./types.jsx";
 
-export const allClearAction = (key) => {
+let currentTypeStore = '';
+
+export const imageInfoAction = (currentUrl, currentType) => {
+    currentType !== undefined && (currentTypeStore = currentType); 
     return {
-        type: ALL_CLEAR,
-        payload: key
+        type: IMAGE_INFO,
+        currentUrl: currentUrl,
+        currentType: currentTypeStore
     }
 }
 
-export const urlHandlerAction = (URL) => {
+export const downloadStageAction = (downloadStage) => {
     return {
-        type: URL_HANDLER,
-        payload: URL
-    }
-}
-
-export const currentTypeHandlerAction = (currentType) => {
-    return {
-        type: CURRENT_TYPE_HANDLER,
-        payload: currentType
-    }
-}
-
-export const downloadRefHandlerAction = (stageRef) => {
-    return {
-        type: DOWNLOAD_REF,
-        payload: stageRef
+        type: DOWNLOAD_STAGE,
+        downloadStage: downloadStage,
     }
 }
