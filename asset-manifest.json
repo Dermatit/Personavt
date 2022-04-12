@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Personavt/static/css/main.c779369c.css",
-    "main.js": "/Personavt/static/js/main.00376577.js",
+    "main.css": "/Personavt/static/css/main.ad049191.css",
+    "main.js": "/Personavt/static/js/main.81aa994a.js",
     "static/js/787.9b1ffa0c.chunk.js": "/Personavt/static/js/787.9b1ffa0c.chunk.js",
     "static/media/Question.svg": "/Personavt/static/media/Question.e05a95b577094228b7c0d4a1adae280d.svg",
     "static/media/Logo.svg": "/Personavt/static/media/Logo.1a0a2032657acbc4e810047787ca4aff.svg",
     "static/media/Download.svg": "/Personavt/static/media/Download.70bbfe98b9f3356b8e71d562aa1cad04.svg",
     "static/media/Message.svg": "/Personavt/static/media/Message.86cb81abcb5e248602f7f6e4831cc420.svg",
     "index.html": "/Personavt/index.html",
-    "main.c779369c.css.map": "/Personavt/static/css/main.c779369c.css.map",
-    "main.00376577.js.map": "/Personavt/static/js/main.00376577.js.map",
+    "main.ad049191.css.map": "/Personavt/static/css/main.ad049191.css.map",
+    "main.81aa994a.js.map": "/Personavt/static/js/main.81aa994a.js.map",
     "787.9b1ffa0c.chunk.js.map": "/Personavt/static/js/787.9b1ffa0c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c779369c.css",
-    "static/js/main.00376577.js"
+    "static/css/main.ad049191.css",
+    "static/js/main.81aa994a.js"
   ]
 }
