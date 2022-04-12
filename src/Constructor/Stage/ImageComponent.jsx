@@ -9,5 +9,11 @@ export const ImageComponent = ({suddenColor, currentType, url}) => {
 
     useEffect(()=>PositionData.forEach(elem => url.slice(9, 45) == elem.UID ? setPosition({x: elem.x, y: elem.y}) : null), [url]);
 
-    return <Image image={image} draggable onClick={()=>suddenColor(currentType, url)} x={parseInt(position.x)} y={parseInt(position.y)}/>;
+    return <Image 
+    image={image} 
+    draggable 
+    onClick={()=>suddenColor(currentType, url)} 
+    onTap={()=>suddenColor(currentType, url)}
+    x={parseInt(position.x)} 
+    y={parseInt(position.y)}/>;
 };
