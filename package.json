@@ -2,7 +2,7 @@
   "name": "logonaut-app",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://dermatit.github.io/",
+  "homepage": "https://dermatit.github.io/Personavt/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -11,6 +11,7 @@
     "chroma-js": "^2.4.2",
     "get-svg-colors": "^2.0.0",
     "get-svg-colors-browser": "^2.0.5",
+    "gh-pages": "^3.2.3",
     "html-react-parser": "^1.4.9",
     "is-svg": "^4.3.2",
     "konva": "^8.3.5",
