@@ -1,15 +1,11 @@
-import { Logo, Question, Download, Message } from "./SubComponent";
+import { Logo, Download } from "./SubComponents";
 import './index.scss';
 
-export default function Header({toggleInfoRender}) {
+export default function Header() {
     return (
         <header>
             <Logo/>
-            <div className='middle'>
-                <Question toggleInfoRender={toggleInfoRender}/>
-                <Download/>
-            </div>
-            <Message/>
+            <Download/>
         </header>
     );
 }

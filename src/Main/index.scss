@@ -1,0 +1,76 @@
+main {
+    background: #f3f3f3;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 50px;
+
+    .main > div:last-child {
+        display: flex;
+        justify-content: center;
+        margin: auto;
+
+        // background: black;
+    }
+
+    .main {
+        display: flex;
+        background: white;
+        height: 100%;
+
+        border-radius: 10px;
+        background: #f3f3f3;
+        box-shadow: inset 10px 10px 20px #cccccc,
+            inset -10px -10px 20px #ffffff;
+
+        .colors {
+            display: flex;
+            flex-direction: column;
+            margin-left: 50px;
+            width: 30px;
+            height: 100%;
+
+            .color-picker-button {
+                cursor: pointer;
+                display: initial;
+                width: 30px;
+                height: 100%;
+                margin-bottom : 50px;
+                border-radius: 50px;
+            }
+            .color-picker-button:first-child {
+                margin-top: 50px;
+            }
+        }
+        .react-colorful {
+            margin: 50px;
+            margin-left: 130px;
+            position: absolute;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        padding: 0px;
+        height: 100%;
+        
+        .main {
+            height: 100%;
+            border-radius: 0;
+
+            .colors {
+                margin-left: 20px;
+            }
+            .react-colorful {
+                height: 11vh;
+                width: 100%;
+                margin: 0;
+
+                .react-colorful__saturation, .react-colorful__last-control {
+                    border-bottom: 0px;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+}

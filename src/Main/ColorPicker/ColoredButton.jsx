@@ -1,4 +1,4 @@
-export const ColorPickerButton = ({color, showColorPicker}) => {
+export const ColoredButton = ({color, showColorPicker}) => {
     return (
         <div 
             className='color-picker-button' 

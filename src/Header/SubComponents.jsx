@@ -1,7 +1,5 @@
 import { ReactComponent as LogoIcon } from '../Assets/Logo.svg';
-import { ReactComponent as QuestionIcon } from '../Assets/Question.svg';
 import { ReactComponent as DownloadIcon } from '../Assets/Download.svg';
-import { ReactComponent as MessageIcon } from '../Assets/Message.svg';
 import { useSelector } from 'react-redux';
 
 export function Logo() {
@@ -10,14 +8,6 @@ export function Logo() {
             <a href='https://vk.com/logonavt'>
                 <LogoIcon/>
             </a>
-        </div>
-    )
-}
-
-export function Question({toggleInfoRender}) {
-    return (
-        <div className='question' onClick={toggleInfoRender}>
-            <QuestionIcon/>
         </div>
     )
 }
@@ -35,18 +25,8 @@ export function Download() {
         el.remove();
     }
     return (
-        <div className='download' onClick={()=>download(downloadStage.current.toDataURL())}>
+        <div className='download' onClick={()=>download(downloadStage.current.toDataURL({pixelRatio: 2}))}>
             <DownloadIcon/>
-        </div>
-    )
-}
-
-export function Message() {
-    return (
-        <div className='message'>
-            <a href='https://vk.com/im?sel=-192730957'>
-                <MessageIcon/>
-            </a>
         </div>
     )
 }

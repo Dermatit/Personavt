@@ -1,9 +1,9 @@
-export const TypeElement = ({initialType, elem, style}) => {
+export const CharacterPartType = ({onTypeClick, elem, style}) => {
     return (
         <div 
             className='typeElement' 
             style={style} 
-            onClick={()=>initialType(elem)} 
+            onClick={()=>onTypeClick(elem)} 
             key={elem}>
             {elem}
         </div> 

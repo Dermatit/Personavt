@@ -1,26 +1,23 @@
 import { useState } from 'react';
-import { Styles } from './Styles/StylesComponent.jsx';
-import { Types } from './Types/TypesComponent.jsx';
-import './index.css'
-import { Slider } from './slider.jsx';
+import { CharacterParts } from './CharacterParts/CharacterParts.jsx';
+import { CharacterPartTypes } from './CharacterPartTypes/CharacterPartTypes.jsx';
+import { SliderForMobile } from './SliderForMobile.jsx';
+import './index.scss'
 
-export default function Footer({rerender}) {
+export default function Footer({clearMain}) {
 
-    const [otherTypesBlur, setOtherTypesBlur] = useState('#1c5ebd');
-    const [poseTypeBlur, setPoseTypeBlur] = useState('#1c5ebd');
+    const [blur] = useState({
+        pose : '#1c5ebd',
+        other : '#1c5ebd'
+    });
 
-    const [localCurrentType, setLocalCurrentType] = useState();
+    const [currentType, setCurrentType] = useState();
 
-    const [typeRender, setTypeRender] = useState(false);
+    const [characterPartsRender, setCharacterPartsRender] = useState(false);
 
-    const initialType = (elem) => {
-        setLocalCurrentType(elem);
-        setTypeRender(true);
-    }
-
-    const setBlur = {
-        poseType : () => setPoseTypeBlur('white'),
-        otherTypes : (color) => setOtherTypesBlur(color)
+    const onTypeClick = (elem) => {
+        setCurrentType(elem);
+        setCharacterPartsRender(true);
     }
 
     return (
@@ -28,16 +25,12 @@ export default function Footer({rerender}) {
             <section>
                 
                 <div className='style'>
-                    {typeRender && <Styles setBlur={setBlur} localCurrentType={localCurrentType} rerender={rerender}/>}
+                    {characterPartsRender && <CharacterParts blur={blur} currentType={currentType} clearMain={clearMain}/>}
                 </div>
 
-                <Slider>
-                    <Types initialType={initialType} poseTypeBlur={poseTypeBlur} otherTypesBlur={otherTypesBlur}/>
-                </Slider>
-                
-                {/* <div className='type'>
-                    <Types initialType={initialType} poseTypeBlur={poseTypeBlur} otherTypesBlur={otherTypesBlur}/>
-                </div> */}
+                <SliderForMobile>
+                    <CharacterPartTypes onTypeClick={onTypeClick} blur={blur}/>
+                </SliderForMobile>
 
             </section>
         </footer>

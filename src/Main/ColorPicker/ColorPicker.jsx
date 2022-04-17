@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { HexColorPicker } from "react-colorful";
 import getSVGColors from 'get-svg-colors-browser';
-import { ColorPickerButton } from './ColorPickerButton.jsx';
+import { ColoredButton } from './ColoredButton.jsx';
 import { imageInfoAction } from '../../Redux/actions.jsx';
-import './index.css';
 
 export const ColorPiker = () => {
     const dispatch = useDispatch();
@@ -33,7 +32,7 @@ export const ColorPiker = () => {
     return (
         <>
         <div className='colors'>
-            {colors.map(color => <ColorPickerButton color={color} showColorPicker={showColorPicker}/>)}
+            {colors.map(color => <ColoredButton color={color} showColorPicker={showColorPicker}/>)}
         </div>
             {displayColorPicker && <HexColorPicker color={colorPickerSelectedColor} onChange={(e)=>setNewColor(colorPickerSelectedColor, e)}/>}
         </>
