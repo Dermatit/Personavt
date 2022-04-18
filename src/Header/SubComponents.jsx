@@ -13,7 +13,7 @@ export function Logo() {
 }
 
 export function Download() {
-    const getStateDownloadStage = state => state.triviaReducer.downloadStage;
+    const getStateDownloadStage = state => state.downloadStage;
     const downloadStage = useSelector(getStateDownloadStage);
 
     const download = (source) => {

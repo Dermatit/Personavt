@@ -6,10 +6,7 @@ import './index.scss'
 
 export default function Footer({clearMain}) {
 
-    const [blur] = useState({
-        pose : '#1c5ebd',
-        other : '#1c5ebd'
-    });
+    const [blur, setBlur] = useState({ pose : '#1c5ebd', other : '#1c5ebd' });
 
     const [currentType, setCurrentType] = useState();
 
@@ -25,7 +22,7 @@ export default function Footer({clearMain}) {
             <section>
                 
                 <div className='style'>
-                    {characterPartsRender && <CharacterParts blur={blur} currentType={currentType} clearMain={clearMain}/>}
+                    {characterPartsRender && <CharacterParts blur={blur} setBlur={setBlur} currentType={currentType} clearMain={clearMain}/>}
                 </div>
 
                 <SliderForMobile>

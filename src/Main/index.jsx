@@ -1,19 +1,15 @@
 import { ColorPiker } from './ColorPicker/ColorPicker';
 import { CharacterStage } from './Stage/CharacterStage';
-import { useCallback, useState } from 'react';
 import './index.scss';
 
 export default function Main() {
-    // const imageContainer = [];
-
-    // const [imageContainer, setImageContainer] = useState([]);
-    // const addImage = image => setImageContainer(image);
+    const images = {};
 
     return (
         <main>
             <div className='main'>
                 <ColorPiker/>
-                <CharacterStage/>
+                <CharacterStage images={images}/>
             </div>
         </main>
     );

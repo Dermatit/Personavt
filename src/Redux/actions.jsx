@@ -1,13 +1,11 @@
-import { IMAGE_INFO, DOWNLOAD_STAGE } from "./types.jsx";
+import { GET_SVG, DOWNLOAD_STAGE } from "./types.jsx";
 
-let currentTypeStore = '';
 
-export const imageInfoAction = (currentUrl, currentType) => {
-    currentType !== undefined && (currentTypeStore = currentType); 
+export const getSvgAction = (svg, currentType) => {
     return {
-        type: IMAGE_INFO,
-        currentUrl: currentUrl,
-        currentType: currentTypeStore
+        type: GET_SVG,
+        svg: svg,
+        currentType: currentType,
     }
 }
 

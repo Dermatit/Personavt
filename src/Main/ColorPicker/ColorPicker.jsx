@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { HexColorPicker } from "react-colorful";
 import getSVGColors from 'get-svg-colors-browser';
 import { ColoredButton } from './ColoredButton.jsx';
-import { imageInfoAction } from '../../Redux/actions.jsx';
+import { getSvgAction } from '../../Redux/actions.jsx';
 
 export const ColorPiker = () => {
     const dispatch = useDispatch();
 
-    const getState = state => state.constructorReducer.currentUrl;
+    const getState = state => state.svg;
     const url = useSelector(getState);
 
     const [colors, setСolors] = useState([]);
@@ -26,7 +26,7 @@ export const ColorPiker = () => {
     const setNewColor = (oldColor, newColor) => {
         const newUrl = url.replaceAll(oldColor, newColor);
         setColorPickerSelectedColor(newColor);
-        url.indexOf(newColor) == -1 && dispatch(imageInfoAction(newUrl));
+        url.indexOf(newColor) == -1 && dispatch(getSvgAction(newUrl));
     };
 
     return (

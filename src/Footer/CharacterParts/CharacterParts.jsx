@@ -1,34 +1,34 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { imageInfoAction } from '../../Redux/actions.jsx';
+import { getSvgAction } from '../../Redux/actions.jsx';
 import { GenderStyle, PoseStyle, OtherStyles } from './CharacterPart.jsx';
 
-export const CharacterParts = ({blur, currentType, clearMain}) => {
+export const CharacterParts = ({blur, setBlur, currentType, clearMain}) => {
     
     const dispatch = useDispatch();
 
-    const [typeCheck] = useState({
+    const [typeCheck, setTypeCheck] = useState({
         pose : null,
         gender : null
     });
 
     const clickPoseParts = (pose) => {
         typeCheck.pose !== pose && clearMain();
-        typeCheck.pose = pose;
-        blur.other = null;
-        dispatch(imageInfoAction(pose, currentType));
+        setTypeCheck({ ...typeCheck, pose : pose })
+        setBlur({ ...blur, other : null})
+        dispatch(getSvgAction(pose, currentType));
     }
 
     const clickGenderParts = (gender) => {
         clearMain();
-        typeCheck.pose = null;
-        typeCheck.gender = gender;
-        blur.other = '#1c5ebd';
-        blur.pose = null;
-        dispatch(imageInfoAction('', currentType));
+        setTypeCheck({ pose : null, gender : gender })
+        setBlur({ pose : null, other : '#1c5ebd'})
+        dispatch(getSvgAction('', currentType));
     }
 
-    const clickOtherParts = (other) => dispatch(imageInfoAction(other, currentType));
+    const clickOtherParts = (other) => {
+        dispatch(getSvgAction(other, currentType));
+    }
 
     switch(currentType) {
         case 'gender': return <GenderStyle clickGenderParts={clickGenderParts}/>;

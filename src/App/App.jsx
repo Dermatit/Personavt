@@ -10,7 +10,6 @@ export default function App() {
     
     return (
         <div className='app'>
-            {/* <Header toggleInfoRender={()=>setInfoRender(prevState=>!prevState)}/> */}
             <Header/>
             <Main key={rerenderKey}/>
             <Footer clearMain={clearMain}/>
