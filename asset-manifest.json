@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "/Personavt/static/css/main.e04a10e8.css",
-    "main.js": "/Personavt/static/js/main.042a047a.js",
+    "main.css": "/Personavt/static/css/main.f9022265.css",
+    "main.js": "/Personavt/static/js/main.4cc738aa.js",
     "static/js/787.9b1ffa0c.chunk.js": "/Personavt/static/js/787.9b1ffa0c.chunk.js",
-    "static/media/Question.svg": "/Personavt/static/media/Question.e05a95b577094228b7c0d4a1adae280d.svg",
     "static/media/Logo.svg": "/Personavt/static/media/Logo.1a0a2032657acbc4e810047787ca4aff.svg",
     "static/media/Download.svg": "/Personavt/static/media/Download.70bbfe98b9f3356b8e71d562aa1cad04.svg",
-    "static/media/Message.svg": "/Personavt/static/media/Message.86cb81abcb5e248602f7f6e4831cc420.svg",
     "index.html": "/Personavt/index.html",
-    "main.e04a10e8.css.map": "/Personavt/static/css/main.e04a10e8.css.map",
-    "main.042a047a.js.map": "/Personavt/static/js/main.042a047a.js.map",
+    "main.f9022265.css.map": "/Personavt/static/css/main.f9022265.css.map",
+    "main.4cc738aa.js.map": "/Personavt/static/js/main.4cc738aa.js.map",
     "787.9b1ffa0c.chunk.js.map": "/Personavt/static/js/787.9b1ffa0c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e04a10e8.css",
-    "static/js/main.042a047a.js"
+    "static/css/main.f9022265.css",
+    "static/js/main.4cc738aa.js"
   ]
 }
