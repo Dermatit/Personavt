@@ -32,7 +32,7 @@ export const ColorPiker = () => {
     return (
         <>
         <div className='colors'>
-            {colors.map(color => <ColoredButton color={color} showColorPicker={showColorPicker}/>)}
+            {colors.map(color => <ColoredButton key={color} color={color} showColorPicker={showColorPicker}/>)}
         </div>
             {displayColorPicker && <HexColorPicker color={colorPickerSelectedColor} onChange={(e)=>setNewColor(colorPickerSelectedColor, e)}/>}
         </>

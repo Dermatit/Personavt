@@ -1,4 +1,4 @@
-export const TypeData = [
+export const characterData = [
     {
         'gender': [
             'male'

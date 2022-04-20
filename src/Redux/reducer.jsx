@@ -6,7 +6,7 @@ const initialState = {
     downloadStage : ''
 }
 
-const constructorReducer = (state = initialState, action) => {
+const appReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_SVG : 
             action.currentType == undefined && (action.currentType = state.currentType);
@@ -25,4 +25,4 @@ const constructorReducer = (state = initialState, action) => {
 }
 
 
-export const rootReducer = constructorReducer;
+export const rootReducer = appReducer;

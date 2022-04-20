@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { getSvgAction } from '../../Redux/actions.jsx';
-import { GenderStyle, PoseStyle, OtherStyles } from './CharacterPart.jsx';
+import { Gender, Pose, Other } from './CharacterPart.jsx';
 
 export const CharacterParts = ({blur, setBlur, currentType, clearMain}) => {
     
@@ -31,8 +31,8 @@ export const CharacterParts = ({blur, setBlur, currentType, clearMain}) => {
     }
 
     switch(currentType) {
-        case 'gender': return <GenderStyle clickGenderParts={clickGenderParts}/>;
-        case 'pose' : return <PoseStyle genderCheck={typeCheck.gender} clickPoseParts={clickPoseParts}/>;
-        default : return <OtherStyles typeCheck={typeCheck} currentType={currentType} clickOtherParts={clickOtherParts}/>;
+        case 'gender': return <Gender clickGenderParts={clickGenderParts}/>;
+        case 'pose' : return <Pose genderCheck={typeCheck.gender} clickPoseParts={clickPoseParts}/>;
+        default : return <Other typeCheck={typeCheck} currentType={currentType} clickOtherParts={clickOtherParts}/>;
     }
 }

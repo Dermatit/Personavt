@@ -1,9 +1,9 @@
 import { CharacterPartType } from './CharacterPartType.jsx';
-import { TypeData } from '../../Data/data.js';
+import { characterData } from '../../Data/characterData.js';
 
 export const CharacterPartTypes = ({onTypeClick, blur}) => {
 
-    return  Object.keys(TypeData.find(elem => elem)).filter(elem => elem !== 'poseCheck').map((elem, i) => {
+    return  Object.keys(characterData.find(elem => elem)).filter(elem => elem !== 'poseCheck').map((elem, i) => {
                     switch(i) {
                         case 0: return <CharacterPartType onTypeClick={onTypeClick} elem={elem} key={i}/>;
                         case 1: return <CharacterPartType onTypeClick={onTypeClick} elem={elem} style={{color : blur.pose}} key={i}/>;

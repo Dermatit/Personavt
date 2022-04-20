@@ -1,4 +1,4 @@
-export const PositionData = [
+export const positionData = [
     {
         'UID': '26e29300-b879-4609-92d2-00eaa5bb15b3',
         'x' : '32', 

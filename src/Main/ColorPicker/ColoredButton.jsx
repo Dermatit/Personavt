@@ -4,7 +4,7 @@ export const ColoredButton = ({color, showColorPicker}) => {
             className='color-picker-button' 
             style={{backgroundColor: color}} 
             onClick={()=> showColorPicker(color)} 
-            key={color}>
+        >
         </div>
     )
 }

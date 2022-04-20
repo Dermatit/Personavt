@@ -1,14 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Stage, Layer } from "react-konva";
 import { getSvgAction, downloadStageAction } from '../../Redux/actions.jsx';
-import { CharacterPart } from './CharacterPart.jsx';
+import { CharacterPart } from './CharacterPart'
 
 export const CharacterStage = ({images}) => {
     const dispatch = useDispatch();
-
-    const stage = useRef();
-    dispatch(downloadStageAction(stage));
 
     const getStateCurrentType = state => state.currentType;
     const getStateCurrentUrl = state => state.svg;
@@ -27,6 +24,9 @@ export const CharacterStage = ({images}) => {
         const indexOfHair = Object.keys(images).indexOf('hair');
         indexOfHair > indexOfFace && ([pureImages[indexOfFace], pureImages[indexOfHair]] = [pureImages[indexOfHair], pureImages[indexOfFace]]);
     }
+    
+    const stage = useRef();
+    useEffect(() => dispatch(downloadStageAction(stage)), [url]);
         
     return (
         <Stage ref={stage} width={250} height={500}>
