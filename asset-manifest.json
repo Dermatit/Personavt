@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Personavt/static/css/main.f9022265.css",
-    "main.js": "/Personavt/static/js/main.a2302fa8.js",
+    "main.js": "/Personavt/static/js/main.c59fa56f.js",
     "static/js/787.9b1ffa0c.chunk.js": "/Personavt/static/js/787.9b1ffa0c.chunk.js",
     "static/media/Logo.svg": "/Personavt/static/media/Logo.1a0a2032657acbc4e810047787ca4aff.svg",
     "static/media/Download.svg": "/Personavt/static/media/Download.70bbfe98b9f3356b8e71d562aa1cad04.svg",
     "index.html": "/Personavt/index.html",
     "main.f9022265.css.map": "/Personavt/static/css/main.f9022265.css.map",
-    "main.a2302fa8.js.map": "/Personavt/static/js/main.a2302fa8.js.map",
+    "main.c59fa56f.js.map": "/Personavt/static/js/main.c59fa56f.js.map",
     "787.9b1ffa0c.chunk.js.map": "/Personavt/static/js/787.9b1ffa0c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f9022265.css",
-    "static/js/main.a2302fa8.js"
+    "static/js/main.c59fa56f.js"
   ]
 }
